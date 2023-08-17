@@ -33,6 +33,14 @@ public interface HelperBase extends ApplicationManager{
         JavascriptExecutor js = (JavascriptExecutor) wd;
         js.executeScript("document.querySelector('footer').style.display='none'");
     }
+    default void hideDiv(){
+        JavascriptExecutor js = (JavascriptExecutor) wd;
+        js.executeScript("document.querySelector('#fixedban').style.zIndex=-10000");
+    }
+
+    default boolean isElementPresent(By locator){
+        return wd.findElements(locator).size() > 0;
+    }
 
 
 
